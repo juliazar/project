@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include "Parser.h"
 
 
 int main() {
-	printf("hello");
+	int numOfFixed = init();
 	return 0;
 }
