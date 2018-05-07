@@ -37,9 +37,13 @@ int findEmpty(int **board, int *row, int *col, int n) {
 
 /* returns 1 if it is valid to put num in sell (row, col), otherwise
 	return 0 */
-/* !!!not finished!!! */
+/*change the hard-coded 3*/
 int isValid(int **board, int row, int col, int n, int num) {
 	int i;
+	int j;
+	int blockRow;
+	int blockCol;
+
 	for (i = 0; i < n; i++) {
 		if (board[row][i] == num) {
 			return 0;
@@ -51,4 +55,33 @@ int isValid(int **board, int row, int col, int n, int num) {
 		}
 	}
 	/* add box checking */
+	blockRow = row / 3;
+	blockCol = col / 3;
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			if (board[3 * blockRow + i][3 * blockCol + j] == num) {
+				return 0;
+			}
+		}
+	}
+
+}
+
+void printBoard(int **board, int n) {
+	int i;
+	int j;
+
+	for (i = 0; i < n; i++) {
+		if (i % 3 == 0) {
+			printf("----------------------------------\n");
+		}
+		for (j = 0; j < n; j++) {
+			if (j % 3 == 0) {
+				printf("| ");
+			}
+			printf(" %d ", board[i][j]);
+		}
+		printf("%|\n");
+	}
+	printf("----------------------------------\n");
 }

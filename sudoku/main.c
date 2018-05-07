@@ -11,7 +11,8 @@ int main() {
 	board = calloc(N, sizeof(int *));
 	for (i = 0; i < N; i++) {
 		board[i] = calloc(N, sizeof(int));	}
-	numOfFixed = init();
-	solve(board);
+	//numOfFixed = init();
+	solve(board, N);
+	printBoard(board, N);
 	return 0;
 }
